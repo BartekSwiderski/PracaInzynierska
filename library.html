@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./sass/main.css" />
+    <link rel="icon" type="image/svg" href="./images/filmIcon.svg" />
+    <title>Filmoteka</title>
+  </head>
+  <body>
+    <header>
+      <div class="headerLibrary container">
+        <div class="headerLibrary__upper">
+          <a class="headerLibrary__logo" href="./index.html"
+            ><img
+              class="headerLibrary__logoIcon"
+              width="24"
+              src="./images/filmIcon.svg"
+              alt="logo"
+            />
+            <p class="headerLibrary__logoText">Filmoteka</p></a
+          >
+          <div class="headerLibrary__menu">
+            <a class="headerLibrary__menuLink" href="./index.html">Home</a>
+            <a
+              class="headerLibrary__menuLink headerIndex__menuLink--underline"
+              href="./library.html"
+              >my library</a
+            >
+          </div>
+        </div>
+        <div class="headerLibrary__buttons">
+          <button id="btnW" class="headerLibrary__btn">watched</button>
+          <button id="btnQ" class="headerLibrary__btn">queue</button>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="gallery" data-modal-open></div>
+    </div>
+    <footer class="container">
+      <div class="footer">
+        <p class="footer__text">© 2021 | All Rights Reserved |</p>
+        <div class="footer__text">
+          <p>Developed by</p>
+          
+          <a class="footer__link" href=https://github.com/BartekSwiderski">Bartek Świderski</a>
+        </div>
+      </div>
+    </footer>
+    <div class="is-hidden moddal" data-modal>
+      <div class="moddal__window">
+        <button class="moddal__close" data-modal-close>
+          <img width="20" src="./images/closeIcon.svg" alt="close icon" />
+        </button>
+        <div class="moddal__grid"></div>
+      </div>
+    </div>
+    <script src="./js/renderMoviesLibrary.js" type="module"></script>
+  </body>
+</html>

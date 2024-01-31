@@ -1,0 +1,28 @@
+{
+  "name": "project-gr-filmoteka",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BartekSwiderski/project-gr-filmoteka.git"
+  },
+  "keywords": [],
+  "author": "Karolina S <karolina@google.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BartekSwiderski/project-gr-filmoteka/issues"
+  },
+  "homepage": "https://github.com/BartekSwiderski/project-gr-filmoteka/",
+  "devDependencies": {
+    "snowpack": "^3.8.8"
+  },
+  "dependencies": {
+    "spin.js": "^4.1.1"
+  }
+}
