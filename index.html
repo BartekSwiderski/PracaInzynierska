@@ -130,6 +130,7 @@
       .then((result) => {
         const user = result.user;
         console.log(user);
+        const uid = user.uid;
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -140,8 +141,8 @@
   const userSignOut = async () => {
     signOut(auth)
       .then(() => {
-        alert("You have signed out successfully");
-        console.log(user);
+        alert(`${user.displayName} you have signed out successfully`);
+        console.log(uid);
       })
       .catch((error) => {});
   };
