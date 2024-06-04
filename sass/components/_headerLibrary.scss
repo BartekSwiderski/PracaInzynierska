@@ -1,47 +1,48 @@
-.headerLibrary{
+.headerLibrary {
   height: 230px;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/headerBackgroundLibrary\ 320.png");
-  &__upper{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../images/headerBackgroundIndex\ 320.jpeg");
+  &__upper {
     display: flex;
     justify-content: space-between;
   }
-  &__logo{
+  &__logo {
     display: flex;
     margin-left: 21px;
     margin-top: 46px;
   }
-  &__logoText{
+  &__logoText {
     display: none;
   }
-  &__menu{
+  &__menu {
     margin-right: 20px;
     margin-top: 58px;
     font-size: 12px;
     text-transform: uppercase;
   }
-  &__menuLink{
+  &__menuLink {
     font-family: var(--font);
     color: var(--font-color_header);
     font-weight: 500;
   }
-  &__menuLink:first-child{
+  &__menuLink:first-child {
     margin-right: 39px;
   }
   &__menuLink:hover,
-  &__menuLink:focus{
+  &__menuLink:focus {
     text-decoration: underline solid var(--span-color);
     text-underline-offset: 0.4em;
     text-decoration-thickness: 2px;
   }
-  &__buttons{
+  &__buttons {
     display: flex;
     margin-top: 49px;
     justify-content: center;
     gap: 20px;
   }
-  &__btn{
+  &__btn {
     background: transparent;
     width: 130px;
     height: 44px;
@@ -55,111 +56,112 @@
     cursor: pointer;
   }
   &__btn:hover,
-  &__btn:focus{
+  &__btn:focus {
     background-color: var(--span-color);
     border-color: var(--span-color);
     box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
-
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px){
-  .headerLibrary{
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .headerLibrary {
     height: 230px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/headerBackgroundLibrary\ 768.png");    
-  
-  &__upper{
-    display: flex;
-    justify-content: space-between;
-  }
-  &__logo{
-    display: flex;
-    margin-left: 71px;
-    margin-top: 41px;
-  }
-  &__logoIcon{
-    margin-right: 10px;
-  }
-  &__logoText{
-    display: inline;
-    font-family: var(--font);
-    color: var(--font-color_header);
-    font-size: 30px;
-    font-weight: 500;
-    margin: 0px;
-  }
-  &__menu{
-    margin-right: 76px;
-    margin-top: 58px;
-    font-size: 12px;
-    text-transform: uppercase;
-  }
-  &__menuLink{
-    font-family: var(--font);
-    color: var(--font-color_header);
-    font-weight: 500;
-  }
-  &__menuLink:first-child{
-    margin-right: 39px;
-  }
-  &__buttons{
-    gap: 15px;
-  }
-  &__btn{
-    width: 136px;
-    height: 44px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("../images/headerBackgroundIndex\ 768.jpeg");
+
+    &__upper {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__logo {
+      display: flex;
+      margin-left: 71px;
+      margin-top: 41px;
+    }
+    &__logoIcon {
+      margin-right: 10px;
+    }
+    &__logoText {
+      display: inline;
+      font-family: var(--font);
+      color: var(--font-color_header);
+      font-size: 30px;
+      font-weight: 500;
+      margin: 0px;
+    }
+    &__menu {
+      margin-right: 76px;
+      margin-top: 58px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    &__menuLink {
+      font-family: var(--font);
+      color: var(--font-color_header);
+      font-weight: 500;
+    }
+    &__menuLink:first-child {
+      margin-right: 39px;
+    }
+    &__buttons {
+      gap: 15px;
+    }
+    &__btn {
+      width: 136px;
+      height: 44px;
+    }
   }
 }
-}
-@media screen and (min-width: 1024px){
-  .headerLibrary{
+@media screen and (min-width: 1024px) {
+  .headerLibrary {
     height: 230px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/headerBackgroundLibrary\ 1024.png");
-  
-  &__upper{
-    display: flex;
-    justify-content: space-between;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("../images/headerBackgroundIndex\ 1024.jpeg");
+
+    &__upper {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__logo {
+      margin-left: 71px;
+      margin-top: 41px;
+      display: flex;
+    }
+    &__logoIcon {
+      margin-right: 10px;
+    }
+    &__logoText {
+      display: inline;
+      font-family: var(--font);
+      color: var(--font-color_header);
+      font-size: 30px;
+      font-weight: 500;
+      margin: 0px;
+    }
+    &__menu {
+      margin-right: 71px;
+      margin-top: 58px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    &__menuLink {
+      font-family: var(--font);
+      color: var(--font-color_header);
+      font-weight: 500;
+    }
+    &__menuLink:first-child {
+      margin-right: 39px;
+    }
+    &__buttons {
+      gap: 15px;
+    }
+    &__btn {
+      width: 136px;
+      height: 44px;
+    }
   }
-  &__logo{
-    margin-left: 71px;
-    margin-top: 41px;
-    display: flex;
-  }
-  &__logoIcon{
-    margin-right: 10px;
-  }
-  &__logoText{
-    display: inline;
-    font-family: var(--font);
-    color: var(--font-color_header);
-    font-size: 30px;
-    font-weight: 500;
-    margin: 0px;
-  }
-  &__menu{
-    margin-right: 71px;
-    margin-top: 58px;
-    font-size: 12px;
-    text-transform: uppercase;
-  }
-  &__menuLink{
-    font-family: var(--font);
-    color: var(--font-color_header);
-    font-weight: 500;
-  }
-  &__menuLink:first-child{
-    margin-right: 39px;
-  }
-  &__buttons{
-    gap: 15px;
-  }
-  &__btn{
-    width: 136px;
-    height: 44px;
-  }
-}
 }

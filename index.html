@@ -19,7 +19,7 @@
     />
     <link rel="stylesheet" href="./sass/main.css" />
     <link rel="icon" type="image/svg" href="./images/filmIcon.svg" />
-    <title>Filmoteka</title>
+    <title>FilmLibrary</title>
   </head>
   <body>
     <header>
@@ -32,7 +32,7 @@
               src="./images/filmIcon.svg"
               alt="logo"
             />
-            <p class="headerIndex__logoText">Filmoteka</p></a
+            <p class="headerIndex__logoText">FilmLibrary</p></a
           >
           <div class="headerIndex__menu">
             <a
@@ -40,9 +40,11 @@
               href="./index.html"
               >Home</a
             >
-            <a class="headerIndex__menuLink" href="./library.html"
-              >my library</a
+            <a class="headerIndex__menuLink" href="./library.html" id="Message"
+              ><span id="displayName"></span> library</a
             >
+            <button class="headerIndex__LoginBtn" id="signIn">Login</button>
+            <button class="headerIndex__LoginBtn" id="signOut">Logout</button>
           </div>
         </div>
         <form class="headerIndex__search-form" id="search-form">
@@ -73,13 +75,11 @@
 
     <footer class="container">
       <div class="footer">
-        <p class="footer__text">© 2021 | All Rights Reserved |</p>
+        <p class="footer__text">© 2024 |</p>
         <div class="footer__text">
-          <p>Developed by</p>
-          
-          <a class="footer__link" href="https://github.com/BartekSwiderski" target="_blank"
-            >Bartosz Świderski</a
-          >
+          <p>
+            Developed by Marcin Lulkiewicz, Przemysław Melon, Bartosz Świderski
+          </p>
         </div>
       </div>
     </footer>
@@ -95,3 +95,70 @@
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+  import {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut,
+    onAuthStateChanged,
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyD8_28psQOyaITWkP0aysC6BjQpaB0oUwY",
+    authDomain: "pracainzynierskafilmoteka.firebaseapp.com",
+    projectId: "pracainzynierskafilmoteka",
+    storageBucket: "pracainzynierskafilmoteka.appspot.com",
+    messagingSenderId: "320698596068",
+    appId: "1:320698596068:web:3196894f91f63459644af1",
+    measurementId: "G-QK7NVC0YY7",
+  };
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+  const signInBtn = document.getElementById("signIn");
+  const signOutBtn = document.getElementById("signOut");
+  const messageShow = document.getElementById("Message");
+  const displayName = document.getElementById("displayName");
+  signOutBtn.style.display = "none";
+  messageShow.style.display = "none";
+
+  const userSignIn = async () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMesage = error.message;
+      });
+  };
+
+  const userSignOut = async () => {
+    signOut(auth)
+      .then(() => {
+        alert("You have signed out successfully");
+        console.log(user);
+      })
+      .catch((error) => {});
+  };
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      signOutBtn.style.display = "inline";
+      messageShow.style.display = "inline";
+      signInBtn.style.display = "none";
+      displayName.innerHTML = user.displayName;
+    } else {
+      signOutBtn.style.display = "none";
+      messageShow.style.display = "none";
+      signInBtn.style.display = "inline";
+    }
+  });
+
+  signInBtn.addEventListener("click", userSignIn);
+  signOutBtn.addEventListener("click", userSignOut);
+</script>
