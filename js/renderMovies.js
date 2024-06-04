@@ -4,6 +4,7 @@ import {
   spinner,
   timeout,
   indexError,
+  HeadTitle,
   imgPlaceholder,
 } from "./utils.js";
 import { genresID } from "./genresID.js";
@@ -14,7 +15,7 @@ export let totalPages = 0;
 async function topMovie(page) {
   try {
     await spinner.removeAttribute("hidden");
-    markup = "";
+    markup = ``;
     await timeout(200);
     const response = await fetch(
       `https://api.themoviedb.org/3/trending/movie/day?api_key=837f028f22fd2591f3672c74a92683e2&page=${page}`
@@ -44,22 +45,24 @@ function renderMovies(movies) {
       .map((genre) => genre.name)
       .slice(0, 3)
       .join(", ");
+    HeadTitle.innerHTML = "Top movies worldwide";
     let date = release_date.split("-");
     let year = date[0];
     if (poster_path == null) {
-    markup += `
+      markup += `
      <div>
       <img class="gallery__image" id="${id}" src="${imgPlaceholder}" alt="plakat" />
       <h3 class="gallery__title">${original_title}</h3>
       <div class="gallery__decr"><p class="gallery__genre">${genre}</p><p class="gallery__date">${year}</p></div>
      </div>`;
-    }
-    else{ markup += `
+    } else {
+      markup += `
     <div>
      <img class="gallery__image" id="${id}" src="${imgURL}${poster_path}" alt="plakat" />
      <h3 class="gallery__title">${original_title}</h3>
      <div class="gallery__decr"><p class="gallery__genre">${genre}</p><p class="gallery__date">${year}</p></div>
-    </div>`;}
+    </div>`;
+    }
   }
   gal.insertAdjacentHTML("beforeend", markup);
 }
@@ -118,6 +121,7 @@ export function renderSerchMovies(movies) {
       .map((genre) => genre.name)
       .join(", ");
     let date = release_date?.split("-") ?? "";
+    HeadTitle.innerHTML = `Movies found for the phrase <span class="gallery__searchName">${name}</span>`;
     let year = date[0];
     if (poster_path == null) {
       markup += `

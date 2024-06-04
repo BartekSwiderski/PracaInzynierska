@@ -66,6 +66,7 @@
       </div>
     </header>
     <div class="container">
+      <h1 class="gallery__HeadTitle" id="HeadTitle"></h1>
       <div class="gallery" data-modal-open></div>
     </div>
 
@@ -127,11 +128,7 @@
 
   const userSignIn = async () => {
     signInWithPopup(auth, provider)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        const uid = user.uid;
-      })
+      .then((result) => {})
       .catch((error) => {
         const errorCode = error.code;
         const errorMesage = error.message;
@@ -141,8 +138,7 @@
   const userSignOut = async () => {
     signOut(auth)
       .then(() => {
-        alert(`${user.displayName} you have signed out successfully`);
-        console.log(uid);
+        alert(Name);
       })
       .catch((error) => {});
   };
@@ -152,6 +148,8 @@
       signOutBtn.style.display = "inline";
       messageShow.style.display = "inline";
       signInBtn.style.display = "none";
+      let Name = user.displayName;
+      let uid = user.uid;
       displayName.innerHTML = user.displayName;
     } else {
       signOutBtn.style.display = "none";
