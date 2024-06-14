@@ -8,8 +8,6 @@ import {
   set,
   equalTo,
   orderByChild,
-  update,
-  remove,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 import {
   getAuth,
@@ -18,7 +16,6 @@ import {
   signOut,
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD8_28psQOyaITWkP0aysC6BjQpaB0oUwY",
@@ -32,7 +29,7 @@ const firebaseConfig = {
   measurementId: "G-QK7NVC0YY7",
 };
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 const signInBtn = document.getElementById("signIn");
@@ -40,23 +37,6 @@ const signOutBtn = document.getElementById("signOut");
 const messageShow = document.getElementById("Message");
 const displayName = document.getElementById("displayName");
 
-// const userSignIn = async () => {
-//   signInWithPopup(auth, provider)
-//     .then((result) => {})
-//     .catch((error) => {
-//       const errorCode = error.code;
-//       const errorMesage = error.message;
-//     });
-// };
-
-// const userSignOut = async () => {
-//   signOut(auth);
-//   guid = null
-//     .then(() => {
-//       alert("Wylogowano");
-//     })
-//     .catch((error) => {});
-// };
 let guid = "";
 let name = "";
 onAuthStateChanged(auth, (user) => {
