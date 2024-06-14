@@ -89,6 +89,7 @@ let name = "";
 onAuthStateChanged(auth, (user) => {
   if (user) {
     if (
+      document.location.pathname === "/PracaInzynierska/index.html" ||
       document.location.pathname === "/index.html" ||
       document.location.pathname.indexOf > -1
     ) {
