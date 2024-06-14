@@ -12,7 +12,7 @@ import {
 } from "./utils.js";
 import { openModalBtn, closeModalBtn, modal } from "./utils.js";
 import { toggleModal, escape, selectId, renderModal } from "./modalLibrary.js";
-import { UserData, guid, GetData, name } from "./main.js";
+import { UserData, guid, GetData, name } from "./database.js";
 //Get data from LocalStorage
 const storage = (key) => {
   const memory = localStorage.getItem(key);

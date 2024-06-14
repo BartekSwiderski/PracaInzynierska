@@ -10,7 +10,7 @@ import {
 //   addLocalStorageWached,
 //   addLocalStorageQueue,
 // } from "./addToLocalStorage.js";
-import { AddData, guid } from "./main.js";
+import { AddData, guid } from "./database.js";
 
 export function toggleModal() {
   modal.classList.toggle("is-hidden");
