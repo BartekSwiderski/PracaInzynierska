@@ -6,11 +6,11 @@ import {
   spinner,
   timeout,
 } from "./utils.js";
-import {
-  addLocalStorageWached,
-  addLocalStorageQueue,
-} from "./addToLocalStorage.js";
-import { AddData, GetData, guid } from "./database.js";
+// import {
+//   addLocalStorageWached,
+//   addLocalStorageQueue,
+// } from "./addToLocalStorage.js";
+import { AddData, guid } from "./main.js";
 
 export function toggleModal() {
   modal.classList.toggle("is-hidden");
