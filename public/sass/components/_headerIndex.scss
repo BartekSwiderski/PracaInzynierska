@@ -1,0 +1,278 @@
+.disabled,
+.hide {
+  display: none;
+}
+
+.headerIndex {
+  height: 230px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../images/headerBackgroundIndex\ 320.jpeg");
+  &__upper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: flex;
+    margin-left: 21px;
+    margin-top: 46px;
+  }
+  &__logoText {
+    display: none;
+  }
+  &__menu {
+    display: flex;
+    margin-right: 20px;
+    margin-top: 58px;
+    font-size: 12px;
+    text-transform: uppercase;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  &__menuLink {
+    font-family: var(--font);
+    color: var(--font-color_header);
+    font-weight: 500;
+  }
+  &__LoginBtn {
+    font-family: var(--font);
+    color: var(--font-color_header);
+    font-weight: 500;
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    margin-left: 2px;
+  }
+  &__menuLink--underline {
+    text-decoration: underline solid var(--span-color);
+    text-underline-offset: 0.4em;
+    text-decoration-thickness: 2px;
+  }
+  &__menuLink:hover,
+  &__menuLink:focus {
+    text-decoration: underline solid var(--span-color);
+    text-underline-offset: 0.4em;
+    text-decoration-thickness: 2px;
+  }
+  &__menuLink:first-child {
+    margin-right: 20px;
+  }
+  &__search-form {
+    display: flex;
+    justify-content: center;
+  }
+  &__error {
+    color: var(--error-color);
+    text-align: center;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 400;
+  }
+  &__search {
+    background: transparent;
+    border: none;
+    border-bottom: 0.5px solid gray;
+    width: 280px;
+    height: 22px;
+    font-family: var(--font);
+    font-size: 14px;
+    color: var(--font-color_header);
+  }
+  &__search:focus {
+    outline: none;
+  }
+  &__search::placeholder {
+    color: var(--font-color_header);
+    font-family: var(--font);
+    font-size: 14px;
+  }
+  &__search-form {
+    margin-top: 37px;
+    margin-bottom: 22px;
+    margin-left: 20px;
+  }
+  &__submit {
+    background: transparent;
+    border: none;
+    position: relative;
+    right: 22px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .disabled,
+  .hide {
+    display: inline-block;
+  }
+  .headerIndex {
+    height: 230px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("../images/headerBackgroundIndex\ 768.jpeg");
+
+    &__upper {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__logo {
+      display: flex;
+      margin-left: 71px;
+      margin-top: 41px;
+    }
+    &__logoIcon {
+      margin-right: 10px;
+      fill: white;
+    }
+    &__logoText {
+      display: inline;
+      font-family: var(--font);
+      color: var(--font-color_header);
+      font-size: 30px;
+      font-weight: 500;
+      margin: 0px;
+    }
+    &__menu {
+      margin-right: 76px;
+      margin-top: 58px;
+      font-size: 12px;
+      text-transform: uppercase;
+      flex-direction: row;
+    }
+    &__menuLink {
+      font-family: var(--font);
+      color: var(--font-color_header);
+      font-weight: 500;
+    }
+    &__LoginBtn {
+      font-family: var(--font);
+      color: var(--font-color_header);
+      font-weight: 500;
+      background: none;
+      border: none;
+      text-transform: uppercase;
+      margin-left: 15px;
+    }
+    &_ &__menuLink:first-child {
+      margin-right: 39px;
+    }
+    &__search {
+      background: transparent;
+      border: none;
+      border-bottom: 0.5px solid gray;
+      width: 336px;
+      height: 22px;
+      font-family: var(--font);
+      font-size: 14px;
+      color: var(--font-color_header);
+    }
+    &__search:focus {
+      outline: none;
+    }
+    &__search::placeholder {
+      color: var(--font-color_header);
+      font-family: var(--font);
+      font-size: 15px;
+    }
+    &__search-form {
+      margin-top: 37px;
+      margin-bottom: 22px;
+    }
+    &__submit {
+      background: transparent;
+      border: none;
+      position: relative;
+      right: 22px;
+    }
+  }
+}
+@media screen and (min-width: 1024px) {
+  .disabled,
+  .hide {
+    display: inline-block;
+  }
+  .headerIndex {
+    height: 230px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("../images/headerBackgroundIndex\ 1024.jpeg");
+
+    &__upper {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__logo {
+      margin-left: 71px;
+      margin-top: 41px;
+      display: flex;
+    }
+    &__logoIcon {
+      margin-right: 10px;
+      fill: white;
+    }
+    &__logoText {
+      display: inline;
+      font-family: var(--font);
+      color: var(--font-color_header);
+      font-size: 30px;
+      font-weight: 500;
+      margin: 0px;
+    }
+    &__menu {
+      margin-right: 71px;
+      margin-top: 58px;
+      font-size: 12px;
+      text-transform: uppercase;
+      flex-direction: row;
+    }
+    &__menuLink {
+      font-family: var(--font);
+      color: var(--font-color_header);
+      font-weight: 500;
+    }
+    &__LoginBtn {
+      font-family: var(--font);
+      color: var(--font-color_header);
+      font-weight: 500;
+      background: none;
+      border: none;
+      text-transform: uppercase;
+      margin-left: 20px;
+    }
+    &_ &__menuLink:first-child {
+      margin-right: 39px;
+    }
+    &__search {
+      background: transparent;
+      border: none;
+      border-bottom: 0.5px solid gray;
+      width: 336px;
+      height: 28px;
+      font-family: var(--font);
+      font-size: 14px;
+      color: var(--font-color_header);
+    }
+    &__search:focus {
+      outline: none;
+    }
+    &__search::placeholder {
+      color: var(--font-color_header);
+      font-family: var(--font);
+      font-size: 16px;
+    }
+    &__search-form {
+      margin-top: 37px;
+      margin-bottom: 22px;
+    }
+    &__submit {
+      background: transparent;
+      border: none;
+      position: relative;
+      right: 22px;
+    }
+  }
+}
