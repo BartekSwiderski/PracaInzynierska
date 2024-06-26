@@ -7,8 +7,8 @@ With this website you can easily search movies.
 * CSS,
 * JavaScript,
 * SASS,
-* Snowpack,
+* BEM
 * Pagination,
-* localStorage
-
-
+* Firebase
+* Google login
+* Live database
