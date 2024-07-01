@@ -1,4 +1,4 @@
-export let genresID=[];
+export let genresID = [];
 async function fetchGenres() {
   try {
     const response = await fetch(
@@ -12,12 +12,8 @@ async function fetchGenres() {
     return console.log(err);
   }
 }
-async function createGenres () {
-  const data = await fetchGenres()
-  genresID=data.genres
+async function createGenres() {
+  const data = await fetchGenres();
+  genresID = data.genres;
 }
-createGenres ();
-
-
-
-
+createGenres();

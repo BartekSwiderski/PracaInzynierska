@@ -47,19 +47,26 @@
             <button class="headerIndex__LoginBtn" id="signOut">Logout</button>
           </div>
         </div>
-        <form class="headerIndex__search-form" id="search-form">
-          <input
-            id="search"
-            type="text"
-            class="headerIndex__search"
-            name="searchQuery"
-            autocomplete="off"
-            placeholder="Search movies"
-          />
-          <button class="headerIndex__submit" type="submit" id="submit">
-            <img width="12" src="./images/searchIcon.svg" alt="search icon" />
+        <div
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <form class="headerIndex__search-form" id="search-form">
+            <input
+              id="search"
+              type="text"
+              class="headerIndex__search"
+              name="searchQuery"
+              autocomplete="off"
+              placeholder="Search movies"
+            />
+            <button class="headerIndex__submit" type="submit" id="submit">
+              <img width="12" src="./images/searchIcon.svg" alt="search icon" />
+            </button>
+          </form>
+          <button class="headerIndex__AdvancedBtn" id="as" type="button">
+            Advanced search
           </button>
-        </form>
+        </div>
         <p class="headerIndex__error" style="display: none">
           Search result not successful. Enter the correct movie name
         </p>
@@ -88,6 +95,14 @@
           <img width="20" src="./images/closeIcon.svg" alt="close icon" />
         </button>
         <div class="moddal__grid"></div>
+      </div>
+    </div>
+    <div class="is-hidden moddal" data-modal2>
+      <div class="moddal__window2">
+        <button class="moddal__close2" data-modal-close2>
+          <img width="20" src="./images/closeIcon.svg" alt="close icon" />
+        </button>
+        <div class="moddal__grid2"></div>
       </div>
     </div>
     <div hidden id="spinner"></div>

@@ -246,6 +246,21 @@
     &_ &__menuLink:first-child {
       margin-right: 39px;
     }
+    &__AdvancedBtn {
+      width: 120px;
+      cursor: pointer;
+      height: 30px;
+      font-family: var(--font);
+      color: var(--font-color_header);
+      background: none;
+      text-transform: uppercase;
+      font-size: 12px;
+      border: none;
+      border-radius: 5px;
+    }
+    &__AdvancedBtn:hover {
+      background: var(--span-color);
+    }
     &__search {
       background: transparent;
       border: none;

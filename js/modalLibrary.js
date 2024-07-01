@@ -1,15 +1,16 @@
 import {
   moddalWind,
+  moddalWind2,
   imgURL,
   imgPlaceholder,
   modal,
+  modal2,
   spinner,
   timeout,
+  SearchModal,
 } from "./utils.js";
-// import {
-//   addLocalStorageWached,
-//   addLocalStorageQueue,
-// } from "./addToLocalStorage.js";
+import { genresID } from "./genresID.js";
+
 import { AddData, guid } from "./database.js";
 
 export function toggleModal() {
@@ -26,6 +27,20 @@ export function escape() {
         moddalWind.firstChild.remove();
       }
       modal.classList.add("is-hidden");
+    }
+  });
+}
+
+export function escape2() {
+  while (moddalWind2.firstChild) {
+    moddalWind2.firstChild.remove();
+  }
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      while (moddalWind2.firstChild) {
+        moddalWind2.firstChild.remove();
+      }
+      modal2.classList.add("is-hidden");
     }
   });
 }
@@ -51,6 +66,15 @@ export async function fetchMovies(id) {
     return console.log(err);
   }
 }
+export function RenderAdvSearch() {
+  console.log(genresID.name);
+  let markupSec = `<h1 class="moddal__advancedTitle">Advanced Search</h1><h3 class="moddal__advancedGenres">Genres</h3><div class="moddal__advancedGrid">`;
+  genresID.forEach((element) => {
+    markupSec += `<button class="moddal__advancedBtn_genre" id="${element.id}">${element.name}</button>`;
+  });
+  markupSec += `</div>`;
+  moddalWind2.insertAdjacentHTML("beforeend", markupSec);
+}
 
 export async function renderModal(movie) {
   let markupSec = "";
@@ -60,6 +84,7 @@ export async function renderModal(movie) {
     vote_average,
     vote_count,
     popularity,
+    original_language,
     original_title,
     overview,
   } = movie;
@@ -72,6 +97,7 @@ export async function renderModal(movie) {
   <div class="moddal__data"><p class="moddal__dataTitle moddal__data--1">Vote / Votes</p><div class="moddal__data"><p class="moddal__dataTxt moddal__voteA">${vote_average}</p>/<p class="moddal__dataTxt moddal__voteC">${vote_count}</p></div></div>
   <div class="moddal__data"><p class="moddal__dataTitle moddal__data--2">Popularity</p><p class="moddal__dataTxt">${popularity}</p></div>
   <div class="moddal__data"><p class="moddal__dataTitle moddal__data--3">Original Title</p><p class="moddal__dataTxt">${original_title}</p></div>
+  <div class="moddal__data"><p class="moddal__dataTitle moddal__data--5">Original Language</p><p class="moddal__dataTxt">${original_language}</p></div>
   <div class="moddal__data"><p class="moddal__dataTitle moddal__data--4">Genre</p><p class="moddal__dataTxt">${gen}</p></div>
   <h2 class="moddal__about">ABOUT</h2>
   <h3 class="moddal__aboutTxt">${overview}</h3>
@@ -85,6 +111,7 @@ export async function renderModal(movie) {
 <div class="moddal__data"><p class="moddal__dataTitle moddal__data--1">Vote / Votes</p><div class="moddal__data"><p class="moddal__dataTxt moddal__voteA">${vote_average}</p>/<p class="moddal__dataTxt moddal__voteC">${vote_count}</p></div></div>
 <div class="moddal__data"><p class="moddal__dataTitle moddal__data--2">Popularity</p><p class="moddal__dataTxt">${popularity}</p></div>
 <div class="moddal__data"><p class="moddal__dataTitle moddal__data--3">Original Title</p><p class="moddal__dataTxt">${original_title}</p></div>
+<div class="moddal__data"><p class="moddal__dataTitle moddal__data--5">Original Language</p><p class="moddal__dataTxt">${original_language}</p></div>
 <div class="moddal__data"><p class="moddal__dataTitle moddal__data--4">Genre</p><p class="moddal__dataTxt">${gen}</p></div>
 <h2 class="moddal__about">ABOUT</h2>
 <h3 class="moddal__aboutTxt">${overview}</h3>
@@ -95,17 +122,6 @@ export async function renderModal(movie) {
 
   const modalButtonWatched = document.querySelector("button[watched]");
   const modalButtonQueue = document.querySelector("button[queue]");
-
-  // modalButtonWatched.addEventListener("click", () => {
-  //   AddData("Watched", movie.id, guid);
-  // });
-
-  // modalButtonQueue.addEventListener("click", () => {
-  //   addLocalStorageQueue("queueLocalStorage", movie.id);
-  // });
-  // modalButtonWatched.addEventListener("click", () => {
-  //   GetData(guid, "Watched");
-  // });
 
   modalButtonWatched.addEventListener("click", () => {
     AddData("Watched", movie.id, guid);

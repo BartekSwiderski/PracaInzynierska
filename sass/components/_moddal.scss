@@ -9,7 +9,8 @@
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.39, 1.03, 0.82, 0.08);
   z-index: 2;
-  &__window{
+  &__window,
+  &__window2 {
     width: 280px;
     background-color: #ffffff;
     position: absolute;
@@ -17,8 +18,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  &__voteA{
-    background-color:  var(--span-color);
+
+  &__voteA {
+    background-color: var(--span-color);
     width: 36px;
     height: 15px;
     border-radius: 5px;
@@ -26,8 +28,8 @@
     align-items: center;
     color: var(--font-color_header);
   }
-  &__voteC{
-    background-color:  var(--background-footer);
+  &__voteC {
+    background-color: var(--background-footer);
     width: 36px;
     height: 15px;
     border-radius: 5px;
@@ -35,7 +37,7 @@
     align-items: center;
   }
 
-  &__poster{
+  &__poster {
     background-size: cover;
     width: 240px;
     height: 356px;
@@ -44,7 +46,8 @@
     margin-bottom: 20px;
     margin-left: 20px;
   }
-  &__close{
+  &__close,
+  &__close2 {
     position: relative;
     top: 2px;
     left: 252px;
@@ -52,36 +55,39 @@
     border: none;
     cursor: pointer;
   }
-  &__title{
+  &__title {
     font-family: var(--font);
     font-size: 20px;
     font-weight: 500;
     margin-left: 20px;
     margin-bottom: 15px;
   }
-  &__data{
+  &__data {
     display: flex;
-    &--1{
+    &--1 {
       margin-right: 33.5px;
     }
-    &--2{
+    &--2 {
       margin-right: 45.5px;
     }
-    &--3{
+    &--3 {
       margin-right: 32px;
     }
-    &--4{
+    &--4 {
       margin-right: 68px;
     }
+    &--5 {
+      margin-right: 4px;
+    }
   }
-  &__about{
+  &__about {
     font-family: var(--font);
     font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
     margin-left: 20px;
   }
-  &__aboutTxt{
+  &__aboutTxt {
     overflow: auto;
     max-height: 160px;
     font-family: var(--font);
@@ -92,7 +98,7 @@
     width: 240px;
     margin-bottom: 16px;
   }
-  &__dataTitle{
+  &__dataTitle {
     font-family: var(--font);
     font-size: 12px;
     font-weight: 500;
@@ -101,13 +107,13 @@
     margin-top: 0px;
     margin-bottom: 10px;
   }
-  &__buttons{
+  &__buttons {
     display: flex;
     gap: 15px;
     margin-left: 20px;
     margin-bottom: 20px;
   }
-  &__btn{
+  &__btn {
     background: transparent;
     border: 1px solid var(--font-color_main);
     border-radius: 4px;
@@ -119,19 +125,18 @@
     font-weight: 500;
   }
   &__btn:focus,
-  &__btn:hover{
+  &__btn:hover {
     background-color: var(--span-color);
     border: 1px solid var(--span-color);
     color: var(--font-color_header);
     cursor: pointer;
   }
-  &__dataTxt{
+  &__dataTxt {
     font-family: var(--font);
     font-size: 12px;
     font-weight: 500;
   }
 }
-
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .moddal {
@@ -145,7 +150,8 @@
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.39, 1.03, 0.82, 0.08);
     z-index: 2;
-    &__window{
+    &__window,
+    &__window2 {
       width: 618px;
       height: 562px;
       background-color: #ffffff;
@@ -154,10 +160,11 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-    &__grid{
+    &__grid,
+    &__grid2 {
       display: flex;
     }
-    &__poster{
+    &__poster {
       background-size: cover;
       margin-left: 28px;
       margin-right: 32px;
@@ -166,31 +173,32 @@
       height: 373px;
       border-radius: 5px;
     }
-    &__close{
+    &__close,
+    &__close2 {
       position: relative;
       top: 4px;
       left: 588px;
       background-color: transparent;
       border: none;
     }
-    &__title{
+    &__title {
       font-family: var(--font);
       font-size: 20px;
       font-weight: 500;
       margin-top: 18px;
       margin-bottom: 20px;
     }
-    &__about{
+    &__about {
       font-family: var(--font);
       font-size: 12px;
       font-weight: 500;
       text-transform: uppercase;
     }
-    &__buttons{
+    &__buttons {
       display: flex;
       gap: 15px;
     }
-    &__btn{
+    &__btn {
       background: transparent;
       border: 1px solid var(--font-color_main);
       border-radius: 4px;
@@ -202,26 +210,29 @@
       font-weight: 500;
     }
     &__btn:focus,
-    &__btn:hover{
+    &__btn:hover {
       background-color: var(--span-color);
       border: 1px solid var(--span-color);
       color: var(--font-color_header);
     }
-    &__data{
-      &--1{
+    &__data {
+      &--1 {
         margin-right: 33.5px;
       }
-      &--2{
+      &--2 {
         margin-right: 45.5px;
       }
-      &--3{
+      &--3 {
         margin-right: 32px;
       }
-      &--4{
+      &--4 {
         margin-right: 68px;
       }
+      &--5 {
+        margin-right: 4px;
+      }
     }
-    &__aboutTxt{
+    &__aboutTxt {
       font-family: var(--font);
       font-size: 12px;
       font-weight: 500;
@@ -229,7 +240,7 @@
       width: 264px;
       margin-bottom: 20px;
     }
-    &__dataTitle{
+    &__dataTitle {
       font-family: var(--font);
       font-size: 12px;
       font-weight: 500;
@@ -250,7 +261,8 @@
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.39, 1.03, 0.82, 0.08);
     z-index: 2;
-    &__window{
+    &__window,
+    &__window2 {
       width: 882px;
       height: 568px;
       background-color: #ffffff;
@@ -259,10 +271,11 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-    &__grid{
+    &__grid {
       display: flex;
     }
-    &__poster{
+
+    &__poster {
       width: 336px;
       height: 478px;
       border-radius: 5px;
@@ -270,27 +283,55 @@
       margin-left: 35px;
       margin-right: 40px;
     }
-    &__close{
+    &__advancedTitle {
+      text-align: center;
+      color: var(--font-color-moddal);
+      font-family: var(--font);
+    }
+    &__advancedBtn_genre {
+      font-family: var(--font);
+      background-color: var(--span-color);
+      border: 1px solid var(--span-color);
+      color: var(--font-color_header);
+      width: 110px;
+      height: 40px;
+      border-radius: 5px;
+    }
+    &__advancedGrid {
+      margin-left: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      width: 842px;
+
+      gap: 12px;
+    }
+    &__advancedGenres {
+      font-family: var(--font);
+      color: var(--span-color);
+      margin: 0 0 15px 15px;
+    }
+    &__close,
+    &__close2 {
       position: relative;
       top: 4px;
       left: 850px;
       background-color: transparent;
       border: none;
     }
-    &__title{
+    &__title {
       font-family: var(--font);
       font-size: 30px;
       font-weight: 500;
       margin-top: 26px;
       margin-bottom: 20px;
     }
-    &__about{
+    &__about {
       font-family: var(--font);
       font-size: 12px;
       font-weight: 500;
       text-transform: uppercase;
     }
-    &__aboutTxt{
+    &__aboutTxt {
       width: 396px;
       font-family: var(--font);
       font-size: 12px;
@@ -299,11 +340,11 @@
       margin-bottom: 27px;
       margin-top: 0px;
     }
-    &__buttons{
+    &__buttons {
       display: flex;
       gap: 15px;
     }
-    &__btn{
+    &__btn {
       background: transparent;
       border: 1px solid var(--font-color_main);
       border-radius: 4px;
@@ -315,26 +356,29 @@
       font-weight: 500;
     }
     &__btn:focus,
-    &__btn:hover{
+    &__btn:hover {
       background-color: var(--span-color);
       border: 1px solid var(--span-color);
       color: var(--font-color_header);
     }
-    &__data{
-      &--1{
+    &__data {
+      &--1 {
         margin-right: 75.5px;
       }
-      &--2{
+      &--2 {
         margin-right: 87.5px;
       }
-      &--3{
+      &--3 {
         margin-right: 74px;
       }
-      &--4{
+      &--4 {
         margin-right: 110px;
       }
+      &--5 {
+        margin-right: 45px;
+      }
     }
-    &__dataTitle{
+    &__dataTitle {
       font-family: var(--font);
       font-size: 12px;
       font-weight: 500;

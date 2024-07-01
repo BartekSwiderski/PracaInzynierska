@@ -5,10 +5,15 @@ import {
   gal,
   openModalBtn,
   closeModalBtn,
+  closeModalBtn2,
   modal,
+  modal2,
   paginationBox,
   moddalWind,
+  moddalWind2,
   indexError,
+  AdvancedSearch,
+  SearchModal,
 } from "./utils.js";
 import {
   toggleModal,
@@ -16,6 +21,7 @@ import {
   fetchMovies,
   escape,
   renderModal,
+  RenderAdvSearch,
 } from "./modalLibrary.js";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -60,6 +66,10 @@ searchForm.addEventListener("input", () => {
     gal.firstChild.remove();
   }
 });
+AdvancedSearch.addEventListener("click", () => {
+  modal2.classList.toggle("is-hidden");
+  RenderAdvSearch();
+});
 
 openModalBtn.addEventListener("click", async (event) => {
   let id = await selectId(event);
@@ -72,6 +82,12 @@ closeModalBtn.addEventListener("click", () => {
     moddalWind.firstChild.remove();
   }
   toggleModal();
+});
+closeModalBtn2.addEventListener("click", () => {
+  while (moddalWind2.firstChild) {
+    moddalWind2.firstChild.remove();
+  }
+  modal2.classList.toggle("is-hidden");
 });
 modal.addEventListener("click", escape());
 paginationBox.addEventListener("click", nextPage);
