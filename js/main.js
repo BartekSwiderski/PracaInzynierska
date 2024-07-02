@@ -8,12 +8,12 @@ import {
   closeModalBtn2,
   modal,
   modal2,
+  timeout,
   paginationBox,
   moddalWind,
   moddalWind2,
   indexError,
   AdvancedSearch,
-  SearchModal,
 } from "./utils.js";
 import {
   toggleModal,
@@ -67,6 +67,7 @@ searchForm.addEventListener("input", () => {
   }
 });
 AdvancedSearch.addEventListener("click", () => {
+  timeout(200);
   modal2.classList.toggle("is-hidden");
   RenderAdvSearch();
 });

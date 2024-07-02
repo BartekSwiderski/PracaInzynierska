@@ -5,6 +5,7 @@ import {
   imgPlaceholder,
   modal,
   modal2,
+  paginationBox,
   spinner,
   HeadTitle,
   gal,
@@ -12,16 +13,14 @@ import {
   GenreList,
   RegionList,
   LanguageList,
-  SubmitAdvancedSearch,
 } from "./utils.js";
 import { genresID, regionID, languageID } from "./genresID.js";
-import { renderSerchMovies } from "./renderMovies.js";
 import { AddData, guid } from "./database.js";
 
 export function toggleModal() {
   modal.classList.toggle("is-hidden");
 }
-
+export let totalPages = 0;
 export function escape() {
   while (moddalWind.firstChild) {
     moddalWind.firstChild.remove();
@@ -147,7 +146,6 @@ export async function renderModal(movie) {
 function renderAdvancedSearchMovies(movies) {
   let markup = "";
   modal2.classList.toggle("is-hidden");
-  timeout(200);
 
   movies;
   for (const {
@@ -162,7 +160,7 @@ function renderAdvancedSearchMovies(movies) {
       .map((genre) => genre.name)
       .slice(0, 3)
       .join(", ");
-    HeadTitle.innerHTML = "Top movies worldwide";
+    HeadTitle.innerHTML = `Movies found for the <span class="gallery__searchName">Advanced Search</span>`;
     let date = release_date.split("-");
     let year = date[0];
     if (poster_path == null) {
@@ -210,9 +208,10 @@ document
       let data = await response.json();
 
       let movies = await data.results;
-      console.log(movies);
+
       if (movies.length > 0) {
         renderAdvancedSearchMovies(movies);
+        paginationBox.style.display = "none";
       } else {
         setPopularMovie();
       }

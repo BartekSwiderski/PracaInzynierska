@@ -25,7 +25,7 @@
   &__menu {
     display: flex;
     margin-right: 20px;
-    margin-top: 58px;
+    margin-top: 28px;
     font-size: 12px;
     text-transform: uppercase;
     flex-direction: column;
@@ -37,6 +37,23 @@
     color: var(--font-color_header);
     font-weight: 500;
   }
+  &__AdvancedBtn {
+    width: 120px;
+    cursor: pointer;
+    height: 30px;
+    font-family: var(--font);
+    color: var(--font-color_header);
+    background: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 100px;
+  }
+  &__AdvancedBtn:hover {
+    background: var(--span-color);
+  }
+
   &__LoginBtn {
     font-family: var(--font);
     color: var(--font-color_header);
@@ -181,6 +198,27 @@
       margin-top: 37px;
       margin-bottom: 22px;
     }
+    &__searchFlex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__AdvancedBtn {
+      width: 120px;
+      cursor: pointer;
+      height: 30px;
+      font-family: var(--font);
+      color: var(--font-color_header);
+      background: none;
+      text-transform: uppercase;
+      font-size: 12px;
+      border: none;
+      border-radius: 5px;
+      margin-left: 20px;
+    }
+    &__AdvancedBtn:hover {
+      background: var(--span-color);
+    }
     &__submit {
       background: transparent;
       border: none;
@@ -204,6 +242,11 @@
     &__upper {
       display: flex;
       justify-content: space-between;
+    }
+    &__searchFlex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     &__logo {
       margin-left: 71px;
@@ -257,6 +300,7 @@
       font-size: 12px;
       border: none;
       border-radius: 5px;
+      margin-left: 40px;
     }
     &__AdvancedBtn:hover {
       background: var(--span-color);
