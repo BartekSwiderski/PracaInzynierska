@@ -6,19 +6,11 @@ import {
   watchedMovie,
   timeout,
   HeadTitle,
-  spinner,
-  AdvancedSearch,
   queueMovie,
   moddalWind,
 } from "./utils.js";
 import { openModalBtn, closeModalBtn, modal } from "./utils.js";
-import {
-  toggleModal,
-  toggleSearchModal,
-  escape,
-  selectId,
-  renderModal,
-} from "./modalLibrary.js";
+import { toggleModal, escape, selectId, renderModal } from "./modalLibrary.js";
 import { UserData, guid, GetData, name } from "./database.js";
 //Get data from LocalStorage
 const storage = (key) => {

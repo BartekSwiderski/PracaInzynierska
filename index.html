@@ -74,11 +74,14 @@
     </header>
     <div class="container">
       <h1 class="gallery__HeadTitle" id="HeadTitle"></h1>
-      <div class="gallery" data-modal-open></div>
+      <div class="gallery" data-modal-open id="gallery"></div>
     </div>
 
     <nav aria-label="Page navigation">
       <ul class="pagination justify-content-center" id="pagination"></ul>
+    </nav>
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center" id="pagination2"></ul>
     </nav>
 
     <footer class="container">
@@ -97,14 +100,40 @@
         <div class="moddal__grid"></div>
       </div>
     </div>
+
     <div class="is-hidden moddal" data-modal2>
       <div class="moddal__window2">
         <button class="moddal__close2" data-modal-close2>
           <img width="20" src="./images/closeIcon.svg" alt="close icon" />
         </button>
-        <div class="moddal__grid2"></div>
+        <div class="moddal__grid2">
+          <h1 class="moddal__advancedTitle">Advanced Search</h1>
+
+          <form id="MyForm">
+            <label for="genre" class="moddal__advancedGenres"
+              >Choose genre:</label
+            ><br />
+            <select id="genre" name="genre">
+              <option default value="null"></option></select
+            ><br />
+            <label for="region" name="region" class="moddal__advancedGenres"
+              >Choose origin country:</label
+            ><br />
+            <select id="region">
+              <option default value="null"></option></select
+            ><br />
+            <label for="language" class="moddal__advancedGenres"
+              >Choose original language:</label
+            ><br />
+            <select id="language" name="language">
+              <option default value="null"></option></select
+            ><br />
+            <button type="submit" id="submitAdvancedSearch">Search</button>
+          </form>
+        </div>
       </div>
     </div>
+
     <div hidden id="spinner"></div>
     <script type="module" src="./js/main.js"></script>
   </body>

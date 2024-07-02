@@ -261,8 +261,7 @@
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.39, 1.03, 0.82, 0.08);
     z-index: 2;
-    &__window,
-    &__window2 {
+    &__window {
       width: 882px;
       height: 568px;
       background-color: #ffffff;
@@ -270,6 +269,16 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+    }
+    &__window2 {
+      width: 600px;
+      height: 400px;
+      background-color: #ffffff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 5px;
     }
     &__grid {
       display: flex;
@@ -310,11 +319,17 @@
       color: var(--span-color);
       margin: 0 0 15px 15px;
     }
-    &__close,
-    &__close2 {
+    &__close {
       position: relative;
       top: 4px;
       left: 850px;
+      background-color: transparent;
+      border: none;
+    }
+    &__close2 {
+      position: relative;
+      top: 4px;
+      left: 570px;
       background-color: transparent;
       border: none;
     }

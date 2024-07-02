@@ -6,11 +6,16 @@ import {
   modal,
   modal2,
   spinner,
+  HeadTitle,
+  gal,
   timeout,
-  SearchModal,
+  GenreList,
+  RegionList,
+  LanguageList,
+  SubmitAdvancedSearch,
 } from "./utils.js";
-import { genresID } from "./genresID.js";
-
+import { genresID, regionID, languageID } from "./genresID.js";
+import { renderSerchMovies } from "./renderMovies.js";
 import { AddData, guid } from "./database.js";
 
 export function toggleModal() {
@@ -67,13 +72,21 @@ export async function fetchMovies(id) {
   }
 }
 export function RenderAdvSearch() {
-  console.log(genresID.name);
-  let markupSec = `<h1 class="moddal__advancedTitle">Advanced Search</h1><h3 class="moddal__advancedGenres">Genres</h3><div class="moddal__advancedGrid">`;
+  let markupSec = ``;
+  let markupSec2 = ``;
+  let markupSec3 = ``;
   genresID.forEach((element) => {
-    markupSec += `<button class="moddal__advancedBtn_genre" id="${element.id}">${element.name}</button>`;
+    markupSec += `<option value="${element.id}">${element.name}</option>`;
   });
-  markupSec += `</div>`;
-  moddalWind2.insertAdjacentHTML("beforeend", markupSec);
+  regionID.forEach((element) => {
+    markupSec2 += `<option value="${element.iso_3166_1}">${element.english_name}</option>`;
+  });
+  languageID.forEach((element) => {
+    markupSec3 += `<option value="${element.iso_639_1}">${element.english_name}</option>`;
+  });
+  GenreList.insertAdjacentHTML("beforeend", markupSec);
+  RegionList.insertAdjacentHTML("beforeend", markupSec2);
+  LanguageList.insertAdjacentHTML("beforeend", markupSec3);
 }
 
 export async function renderModal(movie) {
@@ -131,3 +144,79 @@ export async function renderModal(movie) {
     AddData("Queue", movie.id, guid);
   });
 }
+function renderAdvancedSearchMovies(movies) {
+  let markup = "";
+  modal2.classList.toggle("is-hidden");
+  timeout(200);
+
+  movies;
+  for (const {
+    id,
+    poster_path,
+    original_title,
+    genre_ids,
+    release_date,
+  } of movies) {
+    let genre = genresID
+      .filter((genre) => genre_ids.includes(genre.id))
+      .map((genre) => genre.name)
+      .slice(0, 3)
+      .join(", ");
+    HeadTitle.innerHTML = "Top movies worldwide";
+    let date = release_date.split("-");
+    let year = date[0];
+    if (poster_path == null) {
+      markup += `
+<div>
+<img class="gallery__image" id="${id}" src="${imgPlaceholder}" alt="plakat" />
+<h3 class="gallery__title">${original_title}</h3>
+<div class="gallery__decr"><p class="gallery__genre">${genre}</p><p class="gallery__date">${year}</p></div>
+</div>`;
+    } else {
+      markup += `
+<div>
+<img class="gallery__image" id="${id}" src="${imgURL}${poster_path}" alt="plakat" />
+<h3 class="gallery__title">${original_title}</h3>
+<div class="gallery__decr"><p class="gallery__genre">${genre}</p><p class="gallery__date">${year}</p></div>
+</div>`;
+    }
+  }
+  console.log(markup);
+  document.getElementById("gallery").innerHTML = "";
+  gal.insertAdjacentHTML("beforeend", markup);
+}
+document
+  .getElementById("MyForm")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    let genre = document.getElementById("genre").value;
+    let reg = document.getElementById("region").value;
+    let lang = document.getElementById("language").value;
+    let FetchLink = `https://api.themoviedb.org/3/discover/movie?api_key=837f028f22fd2591f3672c74a92683e2&include_adult=false&include_video=false&sort_by=popularity.desc&page=1`;
+    if (genre != "null") {
+      FetchLink += `&with_genres=${genre}`;
+    }
+    if (reg != "null") {
+      FetchLink += `&with_origin_country=${reg}`;
+    }
+    if (lang != "null") {
+      FetchLink += `&with_original_language=${lang}`;
+    }
+    console.log(FetchLink);
+
+    try {
+      const response = await fetch(`${FetchLink}`);
+      let data = await response.json();
+
+      let movies = await data.results;
+      console.log(movies);
+      if (movies.length > 0) {
+        renderAdvancedSearchMovies(movies);
+      } else {
+        setPopularMovie();
+      }
+    } catch (err) {
+      return console.log(err);
+    }
+  });
